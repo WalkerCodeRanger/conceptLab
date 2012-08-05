@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F115F874-B3E2-46F6-9B24-84477560E8F5}</ProjectGuid>
+    <ProjectGuid>{B1B1FF9E-49E5-4C71-8F0F-4B13EAADEDDB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConceptLab.DataStructuresTests</RootNamespace>
-    <AssemblyName>ConceptLab.DataStructuresTests</AssemblyName>
+    <RootNamespace>ConceptLab.PureObjects</RootNamespace>
+    <AssemblyName>ConceptLab.PureObjects</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.6.1.12217, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,17 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LinearRecursiveStrucuture\ListTests.cs" />
+    <Compile Include="Logic\Boolean.cs" />
+    <Compile Include="Logic\BooleanVisitor.cs" />
+    <Compile Include="Logic\False.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataStructures\DataStructures.csproj">
-      <Project>{892654D2-A19D-477E-8079-D59BF252C458}</Project>
-      <Name>DataStructures</Name>
-    </ProjectReference>
+    <Compile Include="Logic\True.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
