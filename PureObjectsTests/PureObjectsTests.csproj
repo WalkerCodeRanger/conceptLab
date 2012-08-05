@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B1B1FF9E-49E5-4C71-8F0F-4B13EAADEDDB}</ProjectGuid>
+    <ProjectGuid>{B4838DD1-4748-4960-8A50-4C6AF14D077A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConceptLab.PureObjects</RootNamespace>
-    <AssemblyName>ConceptLab.PureObjects</AssemblyName>
+    <RootNamespace>ConceptLab.PureObjectsTests</RootNamespace>
+    <AssemblyName>ConceptLab.PureObjectsTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.6.1.12217, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,13 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logic\Bool.cs" />
-    <Compile Include="Logic\IBoolVisitor.cs" />
-    <Compile Include="Logic\False.cs" />
+    <Compile Include="Logic\BooleanTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Logic\True.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PureObjects\PureObjects.csproj">
+      <Project>{B1B1FF9E-49E5-4C71-8F0F-4B13EAADEDDB}</Project>
+      <Name>PureObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
