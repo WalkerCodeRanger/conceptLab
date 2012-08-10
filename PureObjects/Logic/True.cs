@@ -2,7 +2,7 @@
 
 namespace ConceptLab.PureObjects.Logic
 {
-	internal class True: Bool
+	internal class True : Bool
 	{
 		#region Singleton
 		private static readonly True instance = new True();
@@ -17,9 +17,19 @@ namespace ConceptLab.PureObjects.Logic
 		}
 		#endregion
 
+		public override Bool EqualTo(Bool value)
+		{
+			return value;
+		}
+
 		public override Bool And(Bool value)
 		{
 			return value;
+		}
+
+		public override Bool And(Func<Bool> value)
+		{
+			return value();
 		}
 
 		public override Bool Or(Bool value)
@@ -27,19 +37,24 @@ namespace ConceptLab.PureObjects.Logic
 			return True;
 		}
 
+		public override Bool Or(Func<Bool> value)
+		{
+			return True;
+		}
+
 		public override Bool Xor(Bool value)
 		{
-			return value.Not();
+			return value.Not;
 		}
 
-		public override Bool Not()
+		public override Bool Not
 		{
-			return False;
+			get { return False; }
 		}
 
-		public override TResult Accept<T, TResult>(IBoolVisitor<T, TResult> visitor, T value)
+		public override TResult Accept<T, TResult>(IBoolFunc<T, TResult> func, T value)
 		{
-			return visitor.VisitTrue(value);
+			return func.WhenTrue(value);
 		}
 
 		public override TResult Accept<TResult>(Func<TResult> whenTrue, Func<TResult> whenFalse)

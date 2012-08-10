@@ -9,19 +9,19 @@ namespace ConceptLab.PureObjectsTests.Logic
 		[Test]
 		public void CanUseVisitorInPlaceOfIf()
 		{
-			var result = Bool.True.Accept(new IfVisitor(),6);
+			var result = Bool.True.Accept(new IfFunc(), 6);
 
 			Assert.AreEqual(6*6, result);
 		}
 
-		private class IfVisitor: IBoolVisitor<int,int>
+		private class IfFunc: IBoolFunc<int, int>
 		{
-			public int VisitTrue(int value)
+			public int WhenTrue(int value)
 			{
 				return value*value;
 			}
 
-			public int VisitFalse(int value)
+			public int WhenFalse(int value)
 			{
 				Assert.Fail("Should not execute false case");
 				return 0;
