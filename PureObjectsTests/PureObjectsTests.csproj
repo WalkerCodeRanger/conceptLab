@@ -44,7 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Math\IntegerTests.cs" />
     <Compile Include="Logic\BooleanTests.cs" />
+    <Compile Include="Math\Binary\BinaryNumberTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
