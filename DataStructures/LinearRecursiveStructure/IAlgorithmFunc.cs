@@ -14,7 +14,7 @@
 		/// <param name="host">A reference to the null node.</param>
 		/// <param name="argument">The input parameter passed to the algorithm.</param>
 		/// <returns></returns>
-		TReturn EmptyCase(List<TData> host, TArgument argument);
+		TReturn WhenEmpty(List<TData> host, TArgument argument);
 
 		/// <summary>
 		/// This method is executed when the algorithm processes a non-empty list node.  
@@ -23,7 +23,7 @@
 		/// <param name="host">A reference to the current list node.</param>
 		/// <param name="argument">The input parameter passed to the algorithm.</param>
 		/// <returns></returns>
-		TReturn NonEmptyCase(List<TData> host, TArgument argument);
+		TReturn WhenNonEmpty(List<TData> host, TArgument argument);
 	}
 
 	/// <summary>
@@ -39,7 +39,7 @@
 		/// </summary>
 		/// <param name="host">A reference to the null node.</param>
 		/// <returns></returns>
-		TReturn EmptyCase(List<TData> host);
+		TReturn WhenEmpty(List<TData> host);
 
 		/// <summary>
 		/// This method is executed when the algorithm processes a non-empty list node.  
@@ -47,6 +47,6 @@
 		/// </summary>
 		/// <param name="host">A reference to the current list node.</param>
 		/// <returns></returns>
-		TReturn NonEmptyCase(List<TData> host);
+		TReturn WhenNonEmpty(List<TData> host);
 	}
 }

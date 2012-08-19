@@ -14,19 +14,19 @@
 			next = new EmptyNode<TData>(this);
 		}
 
-		public override TReturn Accept<TArgument, TReturn>(IAlgorithmFunc<TData, TArgument, TReturn> algorithm, TArgument argument)
+		public override TReturn Execute<TArgument, TReturn>(IAlgorithmFunc<TData, TArgument, TReturn> algorithm, TArgument argument)
 		{
 			return algorithm.WhenEmpty(this, argument);
 		}
-		public override TReturn Accept<TReturn>(IAlgorithmFunc<TData, TReturn> algorithm)
+		public override TReturn Execute<TReturn>(IAlgorithmFunc<TData, TReturn> algorithm)
 		{
 			return algorithm.WhenEmpty(this);
 		}
-		public override void Accept<TArgument>(IAlgorithmAction<TData, TArgument> algorithm, TArgument argument)
+		public override void Execute<TArgument>(IAlgorithmAction<TData, TArgument> algorithm, TArgument argument)
 		{
 			algorithm.WhenEmpty(this, argument);
 		}
-		public override void Accept(IAlgorithmAction<TData> algorithm)
+		public override void Execute(IAlgorithmAction<TData> algorithm)
 		{
 			algorithm.WhenEmpty(this);
 		}

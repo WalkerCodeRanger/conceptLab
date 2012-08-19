@@ -16,22 +16,21 @@ namespace ConceptLab.DataStructures.DoublyLinkedList
 
 		public static List<TData> End<TData>(this List<TData> list )
 		{
-			return list.Accept(EndFunc<TData>.Instance);
+			return list.Execute(EndFunc<TData>.Instance);
 		}
 
 		public static int Count<TData>(this List<TData> list)
 		{
-			return list.End().Next.Accept(CountForwardFunc<TData>.Instance);
+			return list.End().Next.Execute(CountForwardFunc<TData>.Instance);
 		}
 	}
 
 	public abstract class List<TData>
 	{
-		public abstract TReturn Accept<TArgument, TReturn>(IAlgorithmFunc<TData, TArgument, TReturn> algorithm, TArgument argument);
-		public abstract TReturn Accept<TReturn>(IAlgorithmFunc<TData, TReturn> algorithm);
-		public abstract void Accept<TArgument>(IAlgorithmAction<TData, TArgument> algorithm, TArgument argument);
-		public abstract void Accept(IAlgorithmAction<TData> algorithm);
-
+		public abstract TReturn Execute<TArgument, TReturn>(IAlgorithmFunc<TData, TArgument, TReturn> algorithm, TArgument argument);
+		public abstract TReturn Execute<TReturn>(IAlgorithmFunc<TData, TReturn> algorithm);
+		public abstract void Execute<TArgument>(IAlgorithmAction<TData, TArgument> algorithm, TArgument argument);
+		public abstract void Execute(IAlgorithmAction<TData> algorithm);
 
 		public abstract List<TData> Next { get; internal set; }
 		public abstract List<TData> Reverse { get; }

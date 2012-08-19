@@ -17,7 +17,7 @@
 
 		public List<TData> WhenNonEmpty(NonEmptyList<TData> host)
 		{
-			return host.Accept(this);
+			return host.Execute(this);
 		}
 	}
 }

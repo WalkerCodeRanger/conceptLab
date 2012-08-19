@@ -13,7 +13,7 @@
 		/// </summary>
 		/// <param name="host">A reference to the null node.</param>
 		/// <param name="argument">The input parameter passed to the algorithm.</param>
-		void EmptyCase(List<TData> host, TArgument argument);
+		void WhenEmpty(List<TData> host, TArgument argument);
 
 		/// <summary>
 		/// This method is executed when the algorithm processes a non-empty list node.  
@@ -21,7 +21,7 @@
 		/// </summary>
 		/// <param name="host">A reference to the current list node.</param>
 		/// <param name="argument">The input parameter passed to the algorithm.</param>
-		void NonEmptyCase(List<TData> host, TArgument argument);
+		void WhenNonEmpty(List<TData> host, TArgument argument);
 	}
 
 	/// <summary>
@@ -36,13 +36,13 @@
 		/// embodies the base case of the recursive algorithm.
 		/// </summary>
 		/// <param name="host">A reference to the null node.</param>
-		void EmptyCase(List<TData> host);
+		void WhenEmpty(List<TData> host);
 
 		/// <summary>
 		/// This method is executed when the algorithm processes a non-empty list node.  
 		/// This method embodies the inductive case of the recursive algorithm.
 		/// </summary>
 		/// <param name="host">A reference to the current list node.</param>
-		void NonEmptyCase(List<TData> host);
+		void WhenNonEmpty(List<TData> host);
 	}
 }

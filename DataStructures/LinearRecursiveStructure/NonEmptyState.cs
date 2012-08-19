@@ -45,22 +45,22 @@
 
 		public override TReturn Execute<TArgument, TReturn>(List<TData> owner, IAlgorithmFunc<TData, TArgument, TReturn> algorithm, TArgument arguement)
 		{
-			return algorithm.NonEmptyCase(owner, arguement);
+			return algorithm.WhenNonEmpty(owner, arguement);
 		}
 
 		public override TReturn Execute<TReturn>(List<TData> owner, IAlgorithmFunc<TData, TReturn> algorithm)
 		{
-			return algorithm.NonEmptyCase(owner);
+			return algorithm.WhenNonEmpty(owner);
 		}
 
 		public override void Execute<TArgument>(List<TData> owner, IAlgorithmAction<TData, TArgument> algorithm, TArgument arguement)
 		{
-			algorithm.NonEmptyCase(owner, arguement);
+			algorithm.WhenNonEmpty(owner, arguement);
 		}
 
 		public override void Execute(List<TData> owner, IAlgorithmAction<TData> algorithm)
 		{
-			algorithm.NonEmptyCase(owner);
+			algorithm.WhenNonEmpty(owner);
 		}
 	}
 }
