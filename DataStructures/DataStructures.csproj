@@ -40,6 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoublyLinkedList\Algorithms\CountForwardFunc.cs" />
+    <Compile Include="DoublyLinkedList\Algorithms\EndFunc.cs" />
+    <Compile Include="DoublyLinkedList\IAlgorithmAction.cs" />
+    <Compile Include="DoublyLinkedList\IAlgorithmFunc.cs" />
+    <Compile Include="DoublyLinkedList\List.cs" />
+    <Compile Include="DoublyLinkedList\NonEmptyList.cs" />
+    <Compile Include="DoublyLinkedList\EmptyNode.cs" />
     <Compile Include="LinearRecursiveStructure\IAlgorithmAction.cs" />
     <Compile Include="LinearRecursiveStructure\IAlgorithmFunc.cs" />
     <Compile Include="LinearRecursiveStructure\List.cs" />
@@ -48,6 +55,7 @@
     <Compile Include="LinearRecursiveStructure\ListState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
