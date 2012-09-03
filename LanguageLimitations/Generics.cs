@@ -2,52 +2,55 @@
 
 namespace ConceptLab.LanguageLimitations
 {
-    public static class Other
-    {
-        /// <summary>
-        /// Constraining a generic type to be a delegate doesn't work, either with class name or keyword
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        public static void Foo<T>()
-            //where T : System.Delegate
-            //where T : delegate
-        {
-        }
+	public static class Other
+	{
+		#region Constraints
+		/// <summary>
+		/// Constraining a generic type to be a delegate doesn't work, either with class name or keyword
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		public static void Foo<T>()
+		//where T : System.Delegate
+		//where T : delegate
+		{
+		}
 
-        /// <summary>
-        /// Constraining a generic type to an enum doesn't work
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static T Parse<T>(this string value)
-            //where T : Enum
-            //where T : enum
-        {
-           return (T)Enum.Parse(typeof(T), value);
-        }
+		/// <summary>
+		/// Constraining a generic type to an enum doesn't work
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="value"></param>
+		/// <returns></returns>
+		public static T Parse<T>(this string value)
+		//where T : Enum
+		//where T : enum
+		{
+			return (T)Enum.Parse(typeof(T), value);
+		}
+		#endregion
 
-        /// <summary>
-        /// Generic Type inference is sometimes too weak
-        /// </summary>
-        public static void TypeInferenceWeak()
-        {
-            var bar = new Bar();
+		#region Type Inference
+		/// <summary>
+		/// Generic Type inference is sometimes too weak
+		/// </summary>
+		public static void TypeInferenceWeak()
+		{
+			var bar = new Bar();
 
-            // This call is valid
-            ExampleMethod<Bar, int, string>(bar, (b, x, y) => b.Foo(x, y));
+			// This call is valid
+			ExampleMethod<Bar, int, string>(bar, (b, x, y) => b.Foo(x, y));
 
-            // But the compiler can't infer the type arguments even though there is enough information
-            //ExampleMethod(bar, (b, x, y) => b.Foo(x, y));
+			// But the compiler can't infer the type arguments even though there is enough information
+			//ExampleMethod(bar, (b, x, y) => b.Foo(x, y));
 
-            // When you are trying to write a clean API, knowing that they will have to specify long complex type parameters
-            // every time they call this method means it is better to just come up with a less ideal way of doing it
-            // that works with type inference
-        }
+			// When you are trying to write a clean API, knowing that they will have to specify long complex type parameters
+			// every time they call this method means it is better to just come up with a less ideal way of doing it
+			// that works with type inference
+		}
 
-        public static void ExampleMethod<TValue, TArg1, TArg2>(TValue mock, Action<TValue, TArg1, TArg2> action)
-        {
-        }
+		public static void ExampleMethod<TValue, TArg1, TArg2>(TValue mock, Action<TValue, TArg1, TArg2> action)
+		{
+		}
 
 		public class Bar
 		{
@@ -55,7 +58,9 @@ namespace ConceptLab.LanguageLimitations
 			{
 			}
 		}
+		#endregion
 
+		#region Types that can't be used as generic parameters (and type lists)
 		/// <summary>
 		/// Generic visitors are very useful.  However, you don't always need the return value or the argument.  Sometimes you
 		/// need more than one argument.
@@ -93,7 +98,30 @@ namespace ConceptLab.LanguageLimitations
 
 		public struct Unit
 		{
-			 
+
 		}
-    }
+		#endregion
+
+		#region Generics not allowed
+		/// <summary>
+		/// One data structure that is occasionally useful is something like a TypedDictionary which
+		/// is a dictionary containing many different types of values.  However, it is strongly typed
+		/// becuase each key defines the type of value for it.  A dictionary should be accessible
+		/// using the [] operator.  However, this is not possible becuase the [] operator does not
+		/// allow generic parameters. 
+		/// </summary>
+		public class TypedDictionary
+		{
+			// This won't compile
+			//public TValue this<TValue>[Key<TValue> key]
+			//{
+			//    throw new NotImplementedException();
+			//} 
+		}
+
+		public class Key<TValue>
+		{
+		}
+		#endregion
+	}
 }
