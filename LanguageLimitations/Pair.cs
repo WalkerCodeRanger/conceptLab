@@ -26,7 +26,7 @@ namespace ConceptLab.LanguageLimitations
     {
         /// <summary>
         /// In this simple case, it can be worked around by use of an extension methid.  I first had this problem when
-        /// extension menthod weren't in the language, and more complex examples can't be solved even with extension methods
+        /// extension method weren't in the language, and more complex examples can't be solved even with extension methods
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="pair"></param>

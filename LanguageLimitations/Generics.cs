@@ -70,13 +70,13 @@ namespace ConceptLab.LanguageLimitations
 		///		1. Implement different versions of the interface with void return and overload the accept method
 		///		2. Implement a special Void or Unit type and use it as the return type
 		/// 
-		/// What you need for the aguments is actually a list of types (which could be empty)
+		/// What you need for the arguments is actually a list of types (which could be empty)
 		/// Instead you are forced either to:
-		///		1. Implement different versopns of the interface with differnt number of arguments and overload the accept method
+		///		1. Implement different versions of the interface with different number of arguments and overload the accept method
 		///		2. Use Tuples as a way to pass multiple arguments, however they are clunky and there is no empty Tuple
 		/// 
-		/// If you combine solutions both of the first solutions, you have a new problem.  Then it isn't possible to distinguish
-		/// a vistor with one parameter and void return from one with no parameters and a return and so on.  This is the problem
+		/// If you combine both of the first solutions, you have a new problem.  Then it isn't possible to distinguish
+		/// a visitor with one parameter and void return from one with no parameters and a return and so on.  This is the problem
 		/// that led to the declaration of Func and Action in the framework.  You then have to name your visitors likewise instead
 		/// of just visitor.
 		/// </summary>
@@ -106,8 +106,8 @@ namespace ConceptLab.LanguageLimitations
 		/// <summary>
 		/// One data structure that is occasionally useful is something like a TypedDictionary which
 		/// is a dictionary containing many different types of values.  However, it is strongly typed
-		/// becuase each key defines the type of value for it.  A dictionary should be accessible
-		/// using the [] operator.  However, this is not possible becuase the [] operator does not
+		/// because each key defines the type of value for it.  A dictionary should be accessible
+		/// using the [] operator.  However, this is not possible because the [] operator does not
 		/// allow generic parameters. 
 		/// </summary>
 		public class TypedDictionary
